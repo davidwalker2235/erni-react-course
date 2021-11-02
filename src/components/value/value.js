@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
 import './value.css';
+import {selectCounterValue} from "../../reducers/counterReducer";
 
-const Value = ({value}) => {
+const Value = () => {
+  const value = useSelector(selectCounterValue);
   return (<p>{value}</p>);
 }
 

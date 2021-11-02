@@ -1,26 +1,19 @@
+import { useDispatch } from "react-redux";
 import './App.css';
 import ReactLogo from "../../assets/icons/react-logo";
-import {useState} from "react";
 import Value from "../value/value";
+import {increaseValue, decreaseValue} from "../../reducers/counterReducer";
 
 const App = () => {
-  const [value, setValue] = useState(0);
-
-  const onIncrement = () => {
-    setValue(value +1)
-  }
-
-  const onDecrement = () => {
-    setValue(value -1)
-  }
+  const dispatch = useDispatch();
 
   return (
     <div className="App">
       <header className="App-header">
-        <ReactLogo rightRotation={true}/>
-        <Value value={value} />
-        <button onClick={onIncrement}>Increase</button>
-        <button onClick={onDecrement}>Decrease</button>
+        <ReactLogo />
+        <Value />
+        <button onClick={() => dispatch(increaseValue(1))}>Increase</button>
+        <button onClick={() => dispatch(decreaseValue(5))}>Decrease</button>
       </header>
     </div>
   );
