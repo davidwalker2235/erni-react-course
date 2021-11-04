@@ -1,5 +1,7 @@
 import counter from './counterReducer';
 
-export {
-  counter
+const rootReducer = {
+  [counter.name]: counter.reducer
 };
+
+export default rootReducer;

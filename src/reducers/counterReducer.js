@@ -8,21 +8,30 @@ export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    increaseValue: (state, action) => {
-      state.counterValue = state.counterValue + action.payload;
+    increaseValue: (state) => {
+      state.counterValue = state.counterValue += 1;
     },
-    decreaseValue: (state, action) => {
-      state.counterValue = state.counterValue - action.payload;
+    decreaseValue: (state) => {
+      state.counterValue = state.counterValue -= 1;
+    },
+    incrementByAmount: (state, action) => {
+      state.counterValue = state.counterValue + action.payload;
     },
   },
 });
 
 export const {
   increaseValue,
-  decreaseValue
+  decreaseValue,
+  incrementByAmount
 } = counterSlice.actions;
+
+export const incrementAsync = amount => dispatch => {
+  setTimeout(() => {
+    dispatch(incrementByAmount(amount));
+  }, 2000);
+};
 
 export const selectCounterValue = (state) => state.counter.counterValue;
 
-
-export default counterSlice.reducer;
+export default counterSlice;
