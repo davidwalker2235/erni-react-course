@@ -1,37 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from "@reduxjs/toolkit";
+import counterActions from "../actions/counterActions";
 
 const initialState = {
-  counterValue: 10,
-};
+  value: 0
+}
 
-export const counterSlice = createSlice({
+const counterSlice = createSlice({
   name: 'counter',
   initialState,
-  reducers: {
-    increaseValue: (state) => {
-      state.counterValue = state.counterValue += 1;
-    },
-    decreaseValue: (state) => {
-      state.counterValue = state.counterValue -= 1;
-    },
-    incrementByAmount: (state, action) => {
-      state.counterValue = state.counterValue + action.payload;
-    },
-  },
-});
+  reducers: counterActions
+})
 
-export const {
-  increaseValue,
-  decreaseValue,
-  incrementByAmount
-} = counterSlice.actions;
+export const {increaseValue, decreaseValue, increaseValueAsync} = counterSlice.actions;
 
+//Async functions
 export const incrementAsync = amount => dispatch => {
   setTimeout(() => {
-    dispatch(incrementByAmount(amount));
+    dispatch(increaseValueAsync(amount));
   }, 2000);
 };
-
-export const selectCounterValue = (state) => state.counter.counterValue;
 
 export default counterSlice;
