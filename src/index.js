@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {QueryClientProvider} from 'react-query';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
@@ -7,16 +8,19 @@ import store from "./store/store";
 import HeaderBar from "./components/header-bar/header-bar";
 import {BrowserRouter} from "react-router-dom";
 import RootNavigator from "./router";
+import {queryClient} from './react-query.config';
+import {Toaster} from "./components";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
+  <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
+      <Toaster />
       <BrowserRouter>
         <HeaderBar />
         <RootNavigator />
       </BrowserRouter>
-    </React.StrictMode>
-  </Provider>,
+    </Provider>
+  </QueryClientProvider>,
   document.getElementById('root')
 );
 
