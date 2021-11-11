@@ -6,7 +6,7 @@ class AppService {
       const response = await axios.get(url);
       return response?.data || [];
     } catch (error) {
-      alert(error)
+      throw(error)
     }
   };
   createUser = async ({url, payload}) => {
@@ -14,23 +14,15 @@ class AppService {
       const response = await axios.post(url, payload);
       return response?.data || {};
     } catch (error) {
-      alert(error)
+      throw(error)
     }
   };
-  getUser = async ({url, user_id}) => {
+  deleteUser = async ({url, payload}) => {
     try {
-      const response = await axios.post(url, {params: { user_id }});
+      const response = await axios.delete(`${url}/${payload}`);
       return response?.data || {};
     } catch (error) {
-      alert(error)
-    }
-  };
-  deleteUser = async ({url, user_id}) => {
-    try {
-      const response = await axios.delete(url, {params: { user_id }});
-      return response?.data || {};
-    } catch (error) {
-      alert(error)
+      throw(error)
     }
   }
 }

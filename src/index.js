@@ -9,11 +9,12 @@ import HeaderBar from "./components/header-bar/header-bar";
 import {BrowserRouter} from "react-router-dom";
 import RootNavigator from "./router";
 import {queryClient} from './react-query.config';
-import {Toaster} from "./components";
+import {Modal, Toaster} from "./components";
 
 ReactDOM.render(
   <QueryClientProvider client={queryClient}>
     <Provider store={store}>
+      <Modal />
       <Toaster />
       <BrowserRouter>
         <HeaderBar />

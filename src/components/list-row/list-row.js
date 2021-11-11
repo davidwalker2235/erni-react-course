@@ -7,16 +7,21 @@ import Paper from "@mui/material/Paper";
 import useRowStyledBase from "./styles";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import {useFetchDeleteUserMutation, useFetchGetUpdatedListMutation} from "../../services/app.query";
 
 const ListRow = ({id, name}) => {
   const [PaperStyled] = useRowStyledBase(Paper);
+  const {mutateAsync: fetchGetUserData} = useFetchGetUpdatedListMutation();
+  const {mutateAsync: fetchDeleteUser} = useFetchDeleteUserMutation({
+    onSuccess: fetchGetUserData
+  });
 
   return (
     <PaperStyled key={id}>
       <ListItem
         sx={{ width: '100%'}}
         secondaryAction={
-          <IconButton edge="end" aria-label="delete">
+          <IconButton edge="end" aria-label="delete" onClick={() => fetchDeleteUser(id)}>
             <DeleteIcon />
           </IconButton>
         }

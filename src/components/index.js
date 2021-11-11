@@ -5,6 +5,8 @@ import ButtonAsyncWithValue from "./button-async-with-value/button-async-with-va
 import HeaderBar from "./header-bar/header-bar";
 import ListRow from "./list-row/list-row";
 import Toaster from "./toaster/toaster";
+import Modal from "./modal/modal";
+import FormDialog from "./formDialog/formDialog";
 
 export {
   ReactLogo,
@@ -13,5 +15,7 @@ export {
   ButtonAsyncWithValue,
   HeaderBar,
   ListRow,
-  Toaster
+  Toaster,
+  Modal,
+  FormDialog
 }
