@@ -8,6 +8,7 @@ import {useSelector} from "react-redux";
 import {selectUserList} from "../../reducers/appReducer";
 import {useFetchGetUpdatedListMutation} from "../../services/app.query";
 import {useEffect} from "react";
+import HeaderBar from "../../components/header-bar/header-bar";
 
 
 const UserList = () => {
@@ -20,6 +21,7 @@ const UserList = () => {
 
   return (
     <Box sx={{ width: '100%' }}>
+      <HeaderBar />
       <Grid container justifyContent="center">
         <Grid item paddingTop={5} xs={12} xl={8} md={8} rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={12}>

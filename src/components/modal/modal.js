@@ -5,14 +5,14 @@ import {hideDialog, selectModalChildren, selectModalIsVisible} from "../../reduc
 const Modal = () => {
   const dispatch = useDispatch();
   const modalChildren = useSelector(selectModalChildren);
-  const open = useSelector(selectModalIsVisible);
+  const isVisible = useSelector(selectModalIsVisible);
 
   const handleClose = () => {
     dispatch(hideDialog())
   };
 
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog open={isVisible} onClose={handleClose}>
       {modalChildren}
     </Dialog>
   );

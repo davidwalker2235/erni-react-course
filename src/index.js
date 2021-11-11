@@ -5,19 +5,16 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import store from "./store/store";
-import HeaderBar from "./components/header-bar/header-bar";
 import {BrowserRouter} from "react-router-dom";
 import RootNavigator from "./router";
 import {queryClient} from './react-query.config';
-import {Modal, Toaster} from "./components";
+import {Modal} from "./components";
 
 ReactDOM.render(
   <QueryClientProvider client={queryClient}>
     <Provider store={store}>
       <Modal />
-      <Toaster />
       <BrowserRouter>
-        <HeaderBar />
         <RootNavigator />
       </BrowserRouter>
     </Provider>
