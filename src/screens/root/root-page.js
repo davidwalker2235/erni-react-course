@@ -10,7 +10,7 @@ const RootPage = () => {
   return (
     <Box sx={styles.rootPage} height={600}>
       <Grid container justifyContent="center" alignItems="center" sx={{ height: '93vh' }}>
-        <Button variant="contained" onClick={() => navigate('/user-list')}>Enter</Button>
+        <Button data-testid="root-page-button" variant="contained" onClick={() => navigate('/user-list')}>Enter</Button>
       </Grid>
     </Box>
   );
