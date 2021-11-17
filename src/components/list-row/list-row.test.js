@@ -1,9 +1,17 @@
-import { screen } from '@testing-library/react';
+import {screen} from '@testing-library/react';
 import ListRow from './list-row';
 import {renderWithRedux} from "../../test/testing-helper";
 
-test('renders learn react link', () => {
-  renderWithRedux(<ListRow />);
-  const linkElement = screen.queryByText(/ENTER/i);
-  expect(linkElement).not.toBeInTheDocument();
+describe('ListRow', () => {
+  const renderListRow = () =>
+      renderWithRedux(<ListRow id={1} name="David" />);
+
+  it('should render list row correctly', () => {
+    renderListRow();
+    const deleteButton = screen.getByRole('button', { name: /delete/i });
+    expect(deleteButton).toBeInTheDocument();
+
+    const name = screen.getByText(/david/i);
+    expect(name).toBeInTheDocument();
+  });
 });
