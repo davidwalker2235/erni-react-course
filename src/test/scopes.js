@@ -1,9 +1,7 @@
 import nock from 'nock';
 
-const nockApi = () => nock('https://erniacademyusercrd.azurewebsites.net');
-
-const scopeGetUserList = () => nockApi()
-  .get(/users/i)
+const scopeGetUserList = nock('https://erniacademyusercrd.azurewebsites.net')
+  .get('/users')
   .reply(200, [{id: 1, name: 'mockUser'}]);
 
 export {

@@ -17,7 +17,7 @@ const ListRow = ({id, name}) => {
   });
 
   return (
-    <PaperStyled key={id}>
+    <PaperStyled key={id} data-testid={`user-id-${id}`}>
       <ListItem
         sx={{ width: '100%'}}
         secondaryAction={
