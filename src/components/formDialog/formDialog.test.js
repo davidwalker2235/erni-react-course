@@ -1,6 +1,6 @@
 import {screen} from '@testing-library/react';
 import FormDialog from './formDialog';
-import {renderWithRedux} from "../../test/testing-helper";
+import {renderWithRedux} from "../../../test/testing-helper";
 
 describe('FormDialog', () => {
   const renderFormDialog = () =>

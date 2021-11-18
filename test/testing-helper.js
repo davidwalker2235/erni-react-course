@@ -1,8 +1,8 @@
 import {render as rtlRender} from '@testing-library/react';
 import {QueryClientProvider} from 'react-query';
 import {Provider} from 'react-redux';
-import {queryClient} from '../react-query.config';
-import rootReducers from "../reducers";
+import {queryClient} from '../src/react-query.config';
+import rootReducers from "../src/reducers";
 import {configureStore} from "@reduxjs/toolkit";
 import {BrowserRouter} from "react-router-dom";
 

@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import RootPage from './root-page';
-import {renderWithRedux} from "../../test/testing-helper";
+import {renderWithRedux} from "../../../test/testing-helper";
 
 describe('RootPage', () => {
   const renderRootPage = () =>

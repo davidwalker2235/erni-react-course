@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import HeaderBar from './header-bar';
-import {renderWithRedux} from "../../test/testing-helper";
+import {renderWithRedux} from "../../../test/testing-helper";
 
 describe('HeaderBar', () => {
   const renderHeaderBar = () =>

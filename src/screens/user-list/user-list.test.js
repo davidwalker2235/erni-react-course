@@ -1,7 +1,7 @@
 import {screen, waitFor} from '@testing-library/react';
 import UserList from './user-list';
-import {renderWithRedux} from "../../test/testing-helper";
-import {scopeGetUserList} from "../../test/scopes";
+import {renderWithRedux} from "../../../test/testing-helper";
+import {scopeGetUserList} from "../../../test/scopes";
 
 // screen.logTestingPlaygroundURL();
 // screen.debug()
@@ -16,10 +16,15 @@ describe('UserList', () => {
   });
 
   it('should renders user list', async () => {
+    // Arrange
     renderUserList();
     const scope = scopeGetUserList();
+
+    // Action
     await waitFor(() => expect(scope.isDone()).toBe(true));
     await screen.findByTestId('user-id-1');
+
+    // Assert
     expect(screen.getByText(/mockUser/i)).toBeInTheDocument();
   });
 });
