@@ -7,8 +7,12 @@ describe('HeaderBar', () => {
     renderWithRedux(<HeaderBar />);
 
   it('should render Header bar correctly', () => {
+    // Arrange
     renderHeaderBar();
     const linkElement = screen.queryByText(/Users/i);
+
+    // Action
+    // Assert
     expect(linkElement).toBeInTheDocument();
   });
 });

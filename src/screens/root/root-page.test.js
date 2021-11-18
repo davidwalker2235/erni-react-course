@@ -6,16 +6,18 @@ describe('RootPage', () => {
   const renderRootPage = () =>
     renderWithRedux(<RootPage />);
 
-  it('should render ENTER button correctly', () => {
+  beforeEach(() => {
     renderRootPage();
+  })
+
+  it('should render ENTER button correctly', () => {
+    // Arrange
     const button = screen.getByTestId('root-page-button');
-    // screen.logTestingPlaygroundURL();
-    // screen.debug(button)
-    expect(button).toBeInTheDocument();
-
-    expect(button).toHaveTextContent('Enter')
-
     let style = window.getComputedStyle(button)
+
+    // Assert
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveTextContent('Enter')
     expect(style.backgroundColor).toBe('rgb(25, 118, 210)');
   });
 });
